@@ -7,4 +7,4 @@ while current_dist < expected_dist:
     current_dist = round(current_dist * 1.1, 2)
     day += 1
 print(f"{day}-й день: {current_dist}")
-print(f"На {day}-й день спортсмен достиг реультата - не менее {expected_dist} км.")
+print(f"На {day}-й день спортсмен достиг результата - не менее {expected_dist} км.")
