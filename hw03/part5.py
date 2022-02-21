@@ -5,28 +5,21 @@ def reduce_list_to_sum(values):
     :param values: список чисел для суммирования.
     :return: сумму чисел списка.
     """
-    global result
+    current_sum = 0
+    need_stop = True
     for value in values:
-        result += int(value)
-
-
-def print_current_sum(result, need_exit=False):
-    """
-    Метод вывода текущей суммы
-    :param result: текущая сумма.
-    :param need_exit: признак вывода текста выхода из программы
-    :return: None
-    """
-    print(f"Текущая сумма: {result}.")
-    if need_exit:
-        print("Выходим из программы...")
+        if value.isdigit():
+            current_sum += int(value)
+        else:
+            need_stop = False
+            break
+    return current_sum, need_stop
 
 
 result = 0
-try:
-    while True:
-        print_current_sum(result)
-        input_list = input("Введите строку чисел через пробел или что-нибудь другое для выхода: ").split()
-        reduce_list_to_sum(input_list)
-except ValueError:
-    print(f"Текущая сумма: {result}. Выходим из программы")
+need_continue = True
+while need_continue:
+    input_list = input("Введите строку чисел через пробел или что-нибудь другое для выхода: ").split()
+    reduce = reduce_list_to_sum(input_list)
+    result, need_continue = reduce[0] + result, reduce[1]
+    print(f"Текущая сумма: {result}.")
