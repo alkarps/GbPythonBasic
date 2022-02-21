@@ -11,3 +11,9 @@ if n % 2:
     list_of_elements.append(odd_element)
 
 print(f"result = {list_of_elements}")
+
+list_of_elements = input("Please, input elements separated by spaces:").split()
+
+for i in range(0, len(list_of_elements) - 1, 2):
+    list_of_elements[i], list_of_elements[i + 1] = list_of_elements[i + 1], list_of_elements[i]
+print(f"result = {list_of_elements}")
