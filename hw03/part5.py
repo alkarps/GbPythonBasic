@@ -5,10 +5,9 @@ def reduce_list_to_sum(values):
     :param values: список чисел для суммирования.
     :return: сумму чисел списка.
     """
-    current_sum = 0
+    global result
     for value in values:
-        current_sum += int(value)
-    return current_sum
+        result += int(value)
 
 
 def print_current_sum(result, need_exit=False):
@@ -28,6 +27,6 @@ try:
     while True:
         print_current_sum(result)
         input_list = input("Введите строку чисел через пробел или что-нибудь другое для выхода: ").split()
-        result += reduce_list_to_sum(input_list)
+        reduce_list_to_sum(input_list)
 except ValueError:
     print(f"Текущая сумма: {result}. Выходим из программы")
