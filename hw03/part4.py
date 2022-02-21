@@ -3,10 +3,10 @@ def my_func(x, y):
 
 
 def my_func_ver2(x, y):
-    result = 1 / x
-    i = -1
+    result = 1
+    i = 0
     while i > y:
-        result *= result
+        result /= x
         i -= 1
     return result
 
