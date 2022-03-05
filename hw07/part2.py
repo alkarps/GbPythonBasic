@@ -9,12 +9,19 @@ class Clothes(ABC):
     def fabric_consumption(self):
         pass
 
+    def common_fabric_consumption(self, others_clothes):
+        result = self.fabric_consumption
+        for clothes in others_clothes:
+            result += clothes.fabric_consumption
+        return result
+
 
 class Coat(Clothes, ABC):
     def __init__(self, name, size):
         super().__init__(name)
         self.size = size
 
+    @property
     def fabric_consumption(self):
         return self.size / 6.5 + 0.5
 
@@ -24,9 +31,12 @@ class Suit(Clothes, ABC):
         super().__init__(name)
         self.height = height
 
+    @property
     def fabric_consumption(self):
-        return self.height * 2 + 0.3
+        return 2 * self.height + 0.3
 
 
-print(Suit("Armani", 200).fabric_consumption())
-print(Coat("Armani", 65).fabric_consumption())
+suit = Suit("Armani", 200)
+print(suit.fabric_consumption)
+print(Coat("Armani", 65).fabric_consumption)
+print(Coat("Armani", 65).common_fabric_consumption([Suit("Armani", 200)]))
