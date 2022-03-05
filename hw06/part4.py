@@ -1,6 +1,6 @@
 class Car:
-    def __init__(self, color, name, is_police):
-        self.speed, self.color, self.name, self.is_police = 0, color, name, False
+    def __init__(self, color, name, is_police, speed=0):
+        self.speed, self.color, self.name, self.is_police = speed, color, name, False
         if type(is_police) == bool:
             self.is_police = is_police
 
@@ -35,7 +35,7 @@ class TownCar(Car):
         super().__init__(color, name, False)
 
     def show_speed(self):
-        self._show_speed_with_limits(60)
+        super()._show_speed_with_limits(60)
 
 
 class SportCar(Car):
@@ -48,7 +48,7 @@ class WorkCar(Car):
         super().__init__(color, name, False)
 
     def show_speed(self):
-        self._show_speed_with_limits(40)
+        super()._show_speed_with_limits(40)
 
 
 class PoliceCar(Car):
