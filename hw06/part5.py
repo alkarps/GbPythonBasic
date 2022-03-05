@@ -10,8 +10,8 @@ class Stationery:
 
 
 class Pen(Stationery):
-    def __init__(self):
-        super().__init__("Ручка")
+    def __init__(self, title="Ручка"):
+        super().__init__(title)
 
     def draw(self):
         super().draw()
@@ -19,8 +19,8 @@ class Pen(Stationery):
 
 
 class Pencil(Stationery):
-    def __init__(self):
-        super().__init__("Карандаш")
+    def __init__(self, title="Карандаш"):
+        super().__init__(title)
 
     def draw(self):
         super().draw()
@@ -28,8 +28,8 @@ class Pencil(Stationery):
 
 
 class Handle(Stationery):
-    def __init__(self):
-        super().__init__("Маркер")
+    def __init__(self, title="Маркер"):
+        super().__init__(title)
 
     def draw(self):
         super().draw()
