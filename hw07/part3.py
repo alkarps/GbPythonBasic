@@ -1,7 +1,7 @@
 class Cell:
     def __init__(self, count):
         if count < 1:
-            raise ValueError("Illegal cells count")
+            raise ValueError("Cells has wrong count")
         self.count = count
 
     def __check_type(self, other):
